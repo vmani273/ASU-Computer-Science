@@ -1,0 +1,57 @@
+# Name: Vishwas Mani
+# Assignment number: 6
+# Class ID: 788
+
+.data
+.asciiz "enter an integer"
+.asciiz "Sum of even numbers: "
+.text
+.global main
+
+main: jal getSum
+
+negativeNumber:
+	li $t1, 0x10010011  #stores address of string in register $t1
+	add $a0, $0, $t1  #adding $t1 into $a0
+	addi $v0, $0, 4 # command to print
+	syscall # ending command
+	
+	addi $a0, $t0, 0 #putting $t0 into $a0
+	addi $v0, $0, 1 #printing integer in $v0 
+	syscall # ending command
+	
+last:
+
+ 	addi $v0, $0, 10 #loading 10 to $v0
+ 	syscall # ending command
+ 
+ oddChecker:
+  	andi $v0, $a0, 1 # if output is odd, $v0 will be 1
+  	jr $ra 
+  	
+  	
+ getSum:
+ 	li $t2, 0x10010000 #set t2 to starting address
+ 	add $a0, $0, $t2 # loading $t2 to $a0
+ 	addi $v0, $0, 4
+ 	syscall
+ 	
+ 	addi $v0, $0, 5 # inputing integer into register
+ 	syscall
+ 	
+ 	blt $v0, 0, negativeNumber #modifying first section
+ 	addi $a0, $v0, 0
+ 	
+ 	
+ 	
+ 	jal oddChecker # jump to oddChecker function
+ 	beq $v0, 1, getSum
+ 	add $t0, $t0, $a0
+ 	
+ 	j getSum
+  	
+  
+  	 
+	
+	
+	
