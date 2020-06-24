@@ -1,0 +1,10 @@
+Sleepy 80000 12 
+Grumpy 43000 4
+Happy 67000 9
+Sneezy 40000 5
+Dopey 43000 6
+Bond 600000 8
+Williams 45000 9
+Hopper 65000 7
+Johnson 43000 6
+Davis 65000 9
